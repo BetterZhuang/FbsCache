@@ -1,0 +1,22 @@
+/**
+    @author: zzg
+    @date: 2022/3/16 21:36
+    @dir_path: fbscache/fbscachepb
+    @note:
+**/
+syntax = "proto3";
+option go_package = "../fbscachepb;pb";
+package fbscachepb;
+
+message Request {
+  string group = 1;
+  string key =2;
+}
+
+message Response {
+  bytes value = 1;
+}
+
+service GroupCache {
+  rpc Get(Request) returns (Response);
+}
